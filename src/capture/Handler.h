@@ -12,8 +12,6 @@ public:
     virtual bool init() = 0;
     virtual bool prepareAcquisition() = 0;
     //// virtual ImagePtr acquireImage() = 0;
-        //cv::Mat frame(img.height, img.width, CV_8UC3, img.rawData.data(), img.width * 3);
-        //cv::cvtColor(frame, frame, cv::COLOR_RGB2BGR);
     virtual cv::Mat acquireImage() = 0;
     virtual bool deinit() = 0;
 

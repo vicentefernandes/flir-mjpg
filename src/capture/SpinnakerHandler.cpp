@@ -74,7 +74,7 @@ bool SpinnakerHandler::prepareAcquisition() {
 
 
 
-ImagePtr SpinnakerHandler::acquireImage() {
+cv::Mat SpinnakerHandler::acquireImage() {
     static int count=0;
     count++;
     ImagePtr convertedImage;
@@ -112,14 +112,19 @@ ImagePtr SpinnakerHandler::acquireImage() {
         pResultImage->Release();
     }
 
-
     catch (Spinnaker::Exception& e)
     {
         cout << "Error: " << e.what() << endl;
         this->deinit();
     }
-    return convertedImage;
 
+    unsigned int XPadding = convertedImage->GetXPadding();
+    unsigned int YPadding = convertedImage->GetYPadding();
+    unsigned int rowsize = convertedImage->GetWidth();
+    unsigned int colsize = convertedImage->GetHeight();
+    //image data contains padding. When allocating Mat container size, you need to account for the X,Y image data padding.
+    cv::Mat img = cv::Mat(colsize + YPadding, rowsize + XPadding, CV_8UC3, convertedImage->GetData(), convertedImage->GetStride());
+    return std::move(img);
 }
 
 bool SpinnakerHandler::deinit() {

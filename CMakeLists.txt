@@ -12,7 +12,7 @@ include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 include_directories(
         ${GLIB_INCLUDE_DIRS}
-        "/usr/include/spinnaker/" ## TODO spinnaker installation dir
+        "/opt/spinnaker/include/"
 )
 
 link_directories(
@@ -25,7 +25,7 @@ link_directories(
 
 set(my_SOURCES
         src/main.cpp
-        #### TODO src/capture/SpinnakerHandler.cpp
+        src/capture/SpinnakerHandler.cpp
         src/stream/MJPEGStreamer.cpp
         src/stream/MJPEGWriter.cpp
         src/capture/WebcamHandler.cpp
@@ -34,7 +34,7 @@ set(my_SOURCES
 
 set(my_LIBRARIES
         ${OpenCV_LIBS}
-        ### TODO "Spinnaker"
+        "Spinnaker"
         )
 
 
