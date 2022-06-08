@@ -31,7 +31,6 @@ public:
     //ImagePtr acquireImage();
     cv::Mat acquireImage();
     bool deinit();
-    virtual std::shared_ptr<Handler> getShared();
 
 };
 

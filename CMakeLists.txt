@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.9.2)
+cmake_minimum_required(VERSION 3.10.2)
 project(flirMJPEG)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS -pthread)
 
 find_package(PkgConfig REQUIRED)
@@ -17,7 +17,12 @@ include_directories(
 
 link_directories(
         ${GLIB_LIBRARY_DIRS}
+	/opt/spinnaker/lib
+
 )
+
+
+#find_library(Spinnaker REQUIRED PATH "/opt/spinnaker/lib")
 
 #include_directories(include)
 #add_subdirectory(include/XXYY)
