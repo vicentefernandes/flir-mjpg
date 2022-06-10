@@ -20,4 +20,4 @@ class MJPEGStreamer {
     std::shared_ptr<Handler> _handler;
 };
 
-#endif // GRADIANT_UAV_SDK_MJPGSTREAMER_H
+#endif // MJPEGSTREAMER_H
